@@ -107,11 +107,21 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 	border: 3px solid #73AD21;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">(function(){
 	$(document).keyup(function(e){
-		if(e.keyCode == 32){
+		if(e.keyCode == 49){
 			$('#1 a').trigger("click");
+		}
+		if(e.keyCode == 50){
+			$('#2 a').trigger("click");
+		}
+		if(e.keyCode == 51){
+			$('#3 a').trigger("click");
+		}
+		if(e.keyCode == 52){
+			$('#4 a').trigger("click");
 		}
 	});
 }());
+
 
 /* Keyboard links - Start 
 var KBIntervalID = 0;
@@ -276,7 +286,7 @@ function moveTouch(e) {
 
 	e.preventDefault();
 };
-*/</script><tw-passagedata pid="1" name="Start" tags="" position="402,167" size="100,100">you walk down an alley. your heels on the wet stone filling the uncanny valley stretching out before you with gentle clicking.
+*/</script><tw-passagedata pid="1" name="Start" tags="" position="405,168" size="100,100">you walk down an alley. your heels on the wet stone filling the uncanny valley stretching out before you with gentle clicking.
 
 &lt;audio src=&quot;https://roecc.github.io/radiophile/audio/The_Path.mp3&quot; autoplay&gt;
 &lt;/audio&gt;
@@ -318,22 +328,22 @@ function moveTouch(e) {
 		if (diffX &gt; 0) {
 			// swiped left
 			//alert(&quot;swiped left&quot;);
-			$(&#39;#1&#39;).trigger(&quot;click&quot;);
+			$(&#39;#1 a&#39;).trigger(&quot;click&quot;);
 		} else {
 			// swiped right
 			//alert(&quot;swiped right&quot;);
-			$(&#39;#2&#39;).trigger(&quot;click&quot;);
+			$(&#39;#2 a&#39;).trigger(&quot;click&quot;);
 		}  
 	} else {
 		// sliding vertically
 		if (diffY &gt; 0) {
 			// swiped up
 			//alert(&quot;swiped up&quot;);
-			$(&#39;#3&#39;).trigger(&quot;click&quot;);
+			$(&#39;#3 a&#39;).trigger(&quot;click&quot;);
 		} else {
 			// swiped down
 			//alert(&quot;swiped down&quot;);
-			$(&#39;#4&#39;).trigger(&quot;click&quot;);
+			$(&#39;#4 a&#39;).trigger(&quot;click&quot;);
 		}  
 	}
 
@@ -346,10 +356,10 @@ function moveTouch(e) {
 
 ---
 
-&lt;span id=&quot;1 a&quot;&gt;[[1-&gt;Go ahead]]&lt;/span&gt;
-&lt;span id=&quot;2 a&quot;&gt;[[2-&gt;Turn around]]&lt;/span&gt;
-&lt;span id=&quot;3 a&quot;&gt;[[3-&gt;Look around]]&lt;/span&gt;
-&lt;span id=&quot;4 a&quot;&gt;[[4-&gt;Lie down]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="2" name="Go ahead" tags="" position="179,321" size="100,100">I clearly modified something
+&lt;span id=&quot;1&quot;&gt;[[1-&gt;Go ahead]]&lt;/span&gt;
+&lt;span id=&quot;2&quot;&gt;[[2-&gt;Turn around]]&lt;/span&gt;
+&lt;span id=&quot;3&quot;&gt;[[3-&gt;Look around]]&lt;/span&gt;
+&lt;span id=&quot;4&quot;&gt;[[4-&gt;Lie down]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="2" name="Go ahead" tags="" position="179,321" size="100,100">I clearly modified something
 
 
 &lt;audio src=&quot;https://roecc.github.io/radiophile/audio/A_New_Beginning.mp3&quot; autoplay&gt;
