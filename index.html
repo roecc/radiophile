@@ -9,10 +9,131 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play index.</tw-noscript></noscript></tw-story>
-<tw-storydata name="index" startnode="1" creator="Twine" creator-version="2.3.15" ifid="69A0ACAC-CE2F-46E2-956E-CDE9CBE1D390" zoom="1" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="399,168" size="100,100">you walk down an alley. your heels on the wet stone filling the uncanny valley stretching out before you with gentle clicking.
+<tw-storydata name="index" startnode="1" creator="Twine" creator-version="2.3.15" ifid="69A0ACAC-CE2F-46E2-956E-CDE9CBE1D390" zoom="1" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#touchbar {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 50%;
+	border: 3px solid #73AD21;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/*
+var container = document.getElementById("touchbar");
+
+container.addEventListener("touchstart", startTouch, false);
+container.addEventListener("touchmove", moveTouch, false);
+
+// Swipe Up / Down / Left / Right
+var initialX = null;
+var initialY = null;
+
+function startTouch(e) {
+	initialX = e.touches[0].clientX;
+	initialY = e.touches[0].clientY;
+};
+
+function moveTouch(e) {
+	if (initialX === null) {
+		return;
+	}
+
+	if (initialY === null) {
+		return;
+	}
+
+	var currentX = e.touches[0].clientX;
+	var currentY = e.touches[0].clientY;
+
+	var diffX = initialX - currentX;
+	var diffY = initialY - currentY;
+
+	if (Math.abs(diffX) > Math.abs(diffY)) {
+		// sliding horizontally
+		if (diffX > 0) {
+			// swiped left
+			console.log("swiped left");
+		} else {
+			// swiped right
+			console.log("swiped right");
+		}  
+	} else {
+		// sliding vertically
+		if (diffY > 0) {
+			// swiped up
+			console.log("swiped up");
+		} else {
+			// swiped down
+			console.log("swiped down");
+		}  
+	}
+
+	initialX = null;
+	initialY = null;
+
+	e.preventDefault();
+};
+*/</script><tw-passagedata pid="1" name="Start" tags="" position="400,168" size="100,100">you walk down an alley. your heels on the wet stone filling the uncanny valley stretching out before you with gentle clicking.
 
 &lt;audio src=&quot;https://roecc.github.io/radiophile/audio/The_Path.mp3&quot; autoplay&gt;
 &lt;/audio&gt;
+
+&lt;div id=&quot;touchbar&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var container = document.getElementById(&quot;touchbar&quot;);
+
+container.addEventListener(&quot;touchstart&quot;, startTouch, false);
+container.addEventListener(&quot;touchmove&quot;, moveTouch, false);
+
+// Swipe Up / Down / Left / Right
+var initialX = null;
+var initialY = null;
+
+function startTouch(e) {
+	initialX = e.touches[0].clientX;
+	initialY = e.touches[0].clientY;
+};
+
+function moveTouch(e) {
+	if (initialX === null) {
+		return;
+	}
+
+	if (initialY === null) {
+		return;
+	}
+
+	var currentX = e.touches[0].clientX;
+	var currentY = e.touches[0].clientY;
+
+	var diffX = initialX - currentX;
+	var diffY = initialY - currentY;
+
+	if (Math.abs(diffX) &gt; Math.abs(diffY)) {
+		// sliding horizontally
+		if (diffX &gt; 0) {
+			// swiped left
+			alert(&quot;swiped left&quot;);
+		} else {
+			// swiped right
+			alert(&quot;swiped right&quot;);
+		}  
+	} else {
+		// sliding vertically
+		if (diffY &gt; 0) {
+			// swiped up
+			alert(&quot;swiped up&quot;);
+		} else {
+			// swiped down
+			alert(&quot;swiped down&quot;);
+		}  
+	}
+
+	initialX = null;
+	initialY = null;
+
+	e.preventDefault();
+};
+&lt;/script&gt;
 
 ---
 
@@ -20,7 +141,7 @@
 
 
 &lt;audio src=&quot;https://roecc.github.io/radiophile/audio/A_New_Beginning.mp3&quot; autoplay&gt;
-&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="3" name="Turn around" tags="" position="330,322" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="Look around" tags="" position="480,322" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="5" name="Lie down" tags="" position="630,322" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="3" name="Turn around" tags="" position="332,318" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="Look around" tags="" position="482,318" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="5" name="Lie down" tags="" position="632,318" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
