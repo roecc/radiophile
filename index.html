@@ -286,9 +286,151 @@ function moveTouch(e) {
 
 	e.preventDefault();
 };
-*/</script><tw-passagedata pid="1" name="Start" tags="" position="402,168" size="100,100">you walk down an alley. your heels on the wet stone filling the uncanny valley stretching out before you with gentle clicking.
+*/</script><tw-passagedata pid="1" name="Start" tags="" position="401,167" size="100,100">you walk down an alley. your heels on the wet stone filling the uncanny valley stretching out before you with gentle clicking.
 
 &lt;audio id=&quot;main_audio&quot; src=&quot;https://roecc.github.io/radiophile/audio/The_Path.mp3&quot;&gt;
+&lt;/audio&gt;
+
+//options
+&lt;audio id=&quot;opt1&quot; src=&quot;https://roecc.github.io/radiophile/audio/option1.mp3&quot;&gt;
+&lt;/audio&gt;
+&lt;audio id=&quot;opt2&quot; src=&quot;https://roecc.github.io/radiophile/audio/option2.mp3&quot;&gt;
+&lt;/audio&gt;
+&lt;audio id=&quot;opt3&quot; src=&quot;https://roecc.github.io/radiophile/audio/option3.mp3&quot;&gt;
+&lt;/audio&gt;
+&lt;audio id=&quot;opt4&quot; src=&quot;https://roecc.github.io/radiophile/audio/option4.mp3&quot;&gt;
+&lt;/audio&gt;
+
+&lt;div id=&quot;touchbar&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var container = document.getElementById(&quot;touchbar&quot;);
+
+container.addEventListener(&quot;touchstart&quot;, startTouch, false);
+container.addEventListener(&quot;touchmove&quot;, moveTouch, false);
+
+// Swipe Up / Down / Left / Right
+var initialX = null;
+var initialY = null;
+
+//audio sources
+var opts = [document.getElementById(&quot;main_audio&quot;), document.getElementById(&quot;opt1&quot;), document.getElementById(&quot;opt2&quot;), document.getElementById(&quot;opt3&quot;), document.getElementById(&quot;opt4&quot;)];
+var current = 0;
+var nextstr = &#39;null&#39;;
+var numopts = 4;
+
+
+//arrow keys start
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == &#39;38&#39;) {
+        // up arrow
+		$(nextstr).trigger(&quot;click&quot;);
+    }
+    else if (e.keyCode == &#39;40&#39;) {
+        // down arrow
+		document.getElementById(&quot;history-backward&quot;).click();
+    }
+    else if (e.keyCode == &#39;37&#39;) {
+       // left arrow
+		handleAudio(-1);
+    }
+    else if (e.keyCode == &#39;39&#39;) {
+       // right arrow
+		handleAudio(1);
+	}
+}
+//arrow keys end
+
+function startTouch(e) {
+	initialX = e.touches[0].clientX;
+	initialY = e.touches[0].clientY;
+};
+
+function moveTouch(e) {
+	if (initialX === null) {
+		return;
+	}
+
+	if (initialY === null) {
+		return;
+	}
+
+	var currentX = e.touches[0].clientX;
+	var currentY = e.touches[0].clientY;
+
+	var diffX = initialX - currentX;
+	var diffY = initialY - currentY;
+
+	if (Math.abs(diffX) &gt; Math.abs(diffY)) {
+		// sliding horizontally
+		if (diffX &gt; 0) {
+			// swiped left
+			//alert(&quot;swiped left&quot;);
+			//$(&#39;#1 a&#39;).trigger(&quot;click&quot;);
+			handleAudio(-1);
+		} else {
+			// swiped right
+			//alert(&quot;swiped right&quot;);
+			//$(&#39;#2 a&#39;).trigger(&quot;click&quot;);
+			handleAudio(1);
+		}  
+	} else {
+		// sliding vertically
+		if (diffY &gt; 0) {
+			// swiped up
+			//alert(&quot;swiped up&quot;);
+			$(nextstr).trigger(&quot;click&quot;);
+		} else {
+			// swiped down
+			//alert(&quot;swiped down&quot;);
+			document.getElementById(&quot;history-backward&quot;).click();
+		}  
+	}
+
+	initialX = null;
+	initialY = null;
+
+	e.preventDefault();
+};
+
+function handleAudio(dir)
+{
+	opts[current].pause();
+	opts[current].currentTime = 0;
+	current += dir;
+	if (current &lt; 0) {
+		current = numopts;
+	}
+	else if (current &gt; numopts) {
+		current = 0;
+	}
+	
+	if (current == 0) {
+		nextstr = &quot;null&quot;;
+	}
+	else {
+		nextstr = &#96;#${current} a&#96;;
+	}
+	opts[current].play();
+}
+
+opts[current].play();
+&lt;/script&gt;
+
+---
+
+&lt;span id=&quot;1&quot;&gt;[[1-&gt;Go ahead]]&lt;/span&gt;
+&lt;span id=&quot;2&quot;&gt;[[2-&gt;Turn around]]&lt;/span&gt;
+&lt;span id=&quot;3&quot;&gt;[[3-&gt;Look around]]&lt;/span&gt;
+&lt;span id=&quot;4&quot;&gt;[[4-&gt;Lie down]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="2" name="Go ahead" tags="" position="179,321" size="100,100">I clearly modified something
+
+
+&lt;audio id=&quot;main_audio&quot;  src=&quot;https://roecc.github.io/radiophile/audio/A_New_Beginning.mp3&quot; autoplay&gt;
 &lt;/audio&gt;
 
 //options
@@ -426,11 +568,7 @@ opts[current].play();
 &lt;span id=&quot;1&quot;&gt;[[1-&gt;Go ahead]]&lt;/span&gt;
 &lt;span id=&quot;2&quot;&gt;[[2-&gt;Turn around]]&lt;/span&gt;
 &lt;span id=&quot;3&quot;&gt;[[3-&gt;Look around]]&lt;/span&gt;
-&lt;span id=&quot;4&quot;&gt;[[4-&gt;Lie down]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="2" name="Go ahead" tags="" position="179,321" size="100,100">I clearly modified something
-
-
-&lt;audio src=&quot;https://roecc.github.io/radiophile/audio/A_New_Beginning.mp3&quot; autoplay&gt;
-&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="3" name="Turn around" tags="" position="332,318" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="Look around" tags="" position="482,318" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="5" name="Lie down" tags="" position="632,318" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="6" name="To-Do" tags="" position="709,116" size="100,100">-left/right option select
+&lt;span id=&quot;4&quot;&gt;[[4-&gt;Lie down]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="3" name="Turn around" tags="" position="332,318" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="Look around" tags="" position="482,318" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="5" name="Lie down" tags="" position="632,318" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="6" name="To-Do" tags="" position="709,116" size="100,100">-left/right option select
 -up confirm
 -down back
 -double tap pause</tw-passagedata></tw-storydata>
