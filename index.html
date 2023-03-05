@@ -371,7 +371,7 @@ function moveTouch(e) {
 
 function handleAudio(dir)
 {
-	opts[current].stop();
+	opts[current].pause();
 	current += dir;
 	if (current &lt; 0) {
 		current = 4;
